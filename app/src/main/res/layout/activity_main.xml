@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <TextView
+            android:id="@+id/tbtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:textSize="22sp"
+            android:textColor="@color/red"
+            android:text="@string/taobao" />
+
+        <com.dreamlive.upmarqueeview.UPMarqueeView
+            android:id="@+id/upview1"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_toRightOf="@+id/tbtv"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"></com.dreamlive.upmarqueeview.UPMarqueeView>
+    </RelativeLayout>
+</LinearLayout>
