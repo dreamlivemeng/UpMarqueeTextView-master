@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dreamlive.upmarqueeview.UPMarqueeView;
 
@@ -45,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         setView();
         upview1.setViews(views);
+        /**
+         * 设置item_view的监听
+         */
+        upview1.setOnItemClickListener(new UPMarqueeView.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, View view) {
+                Toast.makeText(MainActivity.this, "你点击了第几个items" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -54,17 +64,37 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setView() {
         for (int i = 0; i < data.size(); i = i + 2) {
+            final int position = i;
             //设置滚动的单个布局
             LinearLayout moreView = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.item_view, null);
             //初始化布局的控件
             TextView tv1 = (TextView) moreView.findViewById(R.id.tv1);
             TextView tv2 = (TextView) moreView.findViewById(R.id.tv2);
+
+            /**
+             * 设置监听
+             */
+            moreView.findViewById(R.id.rl).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(MainActivity.this, position + "你点击了" + data.get(position).toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            /**
+             * 设置监听
+             */
+            moreView.findViewById(R.id.rl2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(MainActivity.this, position + "你点击了" + data.get(position).toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
             //进行对控件赋值
             tv1.setText(data.get(i).toString());
             if (data.size() > i + 1) {
                 //因为淘宝那儿是两条数据，但是当数据是奇数时就不需要赋值第二个，所以加了一个判断，还应该把第二个布局给隐藏掉
                 tv2.setText(data.get(i + 1).toString());
-            }else {
+            } else {
                 moreView.findViewById(R.id.rl2).setVisibility(View.GONE);
             }
 
