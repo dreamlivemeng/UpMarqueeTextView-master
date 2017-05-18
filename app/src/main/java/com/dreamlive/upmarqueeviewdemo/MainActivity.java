@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             moreView.findViewById(R.id.rl2).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(MainActivity.this, position + "你点击了" + data.get(position).toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, position + "你点击了" + data.get(position + 1).toString(), Toast.LENGTH_SHORT).show();
                 }
             });
             //进行对控件赋值
