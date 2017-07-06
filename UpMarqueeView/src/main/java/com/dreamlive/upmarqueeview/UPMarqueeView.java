@@ -60,6 +60,10 @@ public class UPMarqueeView extends ViewFlipper {
                     }
                 }
             });
+            ViewGroup viewGroup = (ViewGroup) views.get(i).getParent();
+            if (viewGroup != null) {
+                viewGroup.removeAllViews();
+            }
             addView(views.get(i));
         }
         startFlipping();
